@@ -1,0 +1,13 @@
+- name: "Play 1"
+  hosts: localhost
+
+  tasks:
+    - name: "Task 1 of Play 1: Collect facts about local host"
+      ansible.builtin.setup:
+        gather_subset:
+          - "min"
+      register: output
+
+    - name: "print stuff"
+      debug:
+        msg: "{{ output }}"
